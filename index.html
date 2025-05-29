@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bitora 交易所｜亞洲用戶首選</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #0f0f0f, #1c1c1c);
+      color: #fff;
+      overflow-x: hidden;
+    }
+    header {
+      background-color: #111;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    header h1 {
+      font-size: 32px;
+    }
+    section {
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .hero {
+      background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+      background-attachment: fixed;
+    }
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 20px;
+    }
+    .market {
+      background-color: #222;
+    }
+    .market h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    .prices span {
+      display: block;
+      font-size: 20px;
+      margin: 10px;
+    }
+    .features div, .announcement div, .download div, .kyc div {
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.8;
+      font-size: 18px;
+    }
+    .download img {
+      height: 60px;
+      margin-top: 20px;
+    }
+    .kyc-form {
+      margin-top: 30px;
+      background: #333;
+      padding: 30px;
+      border-radius: 10px;
+    }
+    .kyc-form label {
+      display: block;
+      margin-top: 10px;
+      text-align: left;
+    }
+    .kyc-form input {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      margin: 10px auto;
+      padding: 10px;
+    }
+    .kyc-form button {
+      margin-top: 20px;
+      padding: 10px 30px;
+      font-size: 16px;
+    }
+    footer {
+      background-color: #111;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bitora 交易所</h1>
+  </header>
+
+  <section class="hero">
+    <h2>安全．快速．低費率</h2>
+    <p>亞洲用戶首選的虛擬貨幣交易平台</p>
+  </section>
+
+  <section class="market">
+    <h3>即時行情</h3>
+    <div class="prices" id="prices">
+      <span>載入中...</span>
+    </div>
+  </section>
+
+  <section class="features">
+    <h3>平台特色</h3>
+    <div>
+      ✅ 完整合規｜金流透明｜第三方資產保險保障<br>
+      ✅ 超低交易手續費與高返傭制度<br>
+      ✅ 支援多國語言、全球用戶即刻註冊
+    </div>
+  </section>
+
+  <section class="announcement">
+    <h3>最新公告</h3>
+    <div>
+      本月交易大賽現正開放報名中，總獎金高達 100,000 USDT！
+    </div>
+  </section>
+
+  <section class="download">
+    <h3>下載 Bitora App</h3>
+    <div>
+      可於 Android 下載使用，iOS 敬請期待！<br/>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+    </div>
+  </section>
+
+  <section class="kyc">
+    <h3>KYC 審核入口</h3>
+    <div class="kyc-form">
+      <form>
+        <label for="fullname">姓名：</label>
+        <input type="text" id="fullname" name="fullname" placeholder="請輸入您的姓名" required />
+
+        <label for="id-front">身份證（正面）：</label>
+        <input type="file" id="id-front" name="id-front" accept="image/*" required />
+
+        <label for="id-back">身份證（反面）：</label>
+        <input type="file" id="id-back" name="id-back" accept="image/*" required />
+
+        <label for="selfie">自拍照：</label>
+        <input type="file" id="selfie" name="selfie" accept="image/*" required />
+
+        <button type="submit">提交審核</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Bitora. All rights reserved.
+  </footer>
+
+  <script>
+    async function fetchPrices() {
+      const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd');
+      const data = await response.json();
+      const priceDiv = document.getElementById('prices');
+      priceDiv.innerHTML = `
+        <span>BTC：$${data.bitcoin.usd.toLocaleString()} USD</span>
+        <span>ETH：$${data.ethereum.usd.toLocaleString()} USD</span>
+      `;
+    }
+    fetchPrices();
+    setInterval(fetchPrices, 30000);
+  </script>
+</body>
+</html>
