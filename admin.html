@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bitora KYC 後台模擬</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #222;
+    }
+    th, td {
+      padding: 15px;
+      border: 1px solid #444;
+      text-align: center;
+    }
+    th {
+      background: #333;
+    }
+    tr:nth-child(even) {
+      background: #2a2a2a;
+    }
+    .status-pending {
+      color: orange;
+    }
+    .status-approved {
+      color: lightgreen;
+    }
+    .status-rejected {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bitora KYC 後台管理介面（模擬）</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>用戶姓名</th>
+        <th>身份證（正）</th>
+        <th>身份證（反）</th>
+        <th>自拍照</th>
+        <th>狀態</th>
+        <th>備註</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>林信宏</td>
+        <td><img src="https://via.placeholder.com/80x50?text=ID+Front" /></td>
+        <td><img src="https://via.placeholder.com/80x50?text=ID+Back" /></td>
+        <td><img src="https://via.placeholder.com/50x50?text=Selfie" /></td>
+        <td class="status-pending">待審核</td>
+        <td>--</td>
+      </tr>
+      <tr>
+        <td>黃雅婷</td>
+        <td><img src="https://via.placeholder.com/80x50?text=ID+Front" /></td>
+        <td><img src="https://via.placeholder.com/80x50?text=ID+Back" /></td>
+        <td><img src="https://via.placeholder.com/50x50?text=Selfie" /></td>
+        <td class="status-approved">已通過</td>
+        <td>快速驗證通過</td>
+      </tr>
+      <tr>
+        <td>曾柏誠</td>
+        <td><img src="https://via.placeholder.com/80x50?text=ID+Front" /></td>
+        <td><img src="https://via.placeholder.com/80x50?text=ID+Back" /></td>
+        <td><img src="https://via.placeholder.com/50x50?text=Selfie" /></td>
+        <td class="status-rejected">已退件</td>
+        <td>自拍模糊，請重新上傳</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
